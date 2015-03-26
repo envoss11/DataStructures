@@ -91,7 +91,10 @@ public class DoublyLinkedList<T>
 	public static <T> void insertFirst(DNode<T> header,T item)
 	{
 		DNode<T> newNode=new DNode<T>(item);
-		
+		newNode.next=header;
+		newNode.prev=header.prev;
+		header.next=header.next.next;
+		header.prev=newNode;
 	}
 	//Post: item inserted as last element of list
 	public static <T> void insertLast(DNode<T> header,T item)
