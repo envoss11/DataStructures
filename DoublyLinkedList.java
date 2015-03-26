@@ -61,23 +61,36 @@ public class DoublyLinkedList<T>
 	//Return:The number of data nodes in the list
 	public static <T> int size(DNode<T> header)
 	{
-		
+		int count=1;
+		DNode<T> newNode=new DNode<T>();
+		newNode.next=header.next;
+		while(newNode.next!=header)
+		{
+			count++;
+			newNode=newNode.next;
+			newNode.next=newNode.next.next;
+		}
+		return count;
 	}
 	//Pre: list referenced by header cannot be empty
 	//Post: First element removed from list
 	public static <T>void removeFirst(DNode<T> header)
 	{
-		
+		header.next.prev=header.prev;
+		header.prev.next=header.next;
+		header=header.next;
 	}
 	//Pre: list referenced by header cannot be empty
 	//Post:Last element removed from list
 	public static <T> void removeLast(DNode<T> header)
 	{
-		
+		header.prev.prev.next=header;
+		header.prev=header.prev.prev;
 	}
 	//Post: item inserted as first element of list
-	public static <T> void removeLast(DNode<T> header,T item)
+	public static <T> void insertFirst(DNode<T> header,T item)
 	{
+		DNode<T> newNode=new DNode<T>(item);
 		
 	}
 	//Post: item inserted as last element of list
