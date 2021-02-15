@@ -1,2 +1,2 @@
 # DataStructures
-Homework from a Java-based data structures course
+Implementations of some data structures in Java
